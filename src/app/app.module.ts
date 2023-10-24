@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import {MatButtonModule} from '@angular/material/button';
-import { LoginModule, LoginRoutingModule } from './auth/login';
+import { LoginModule, LoginRoutingModule, CadastroPjModule } from './auth';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -16,7 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatButtonModule,
     LoginModule,
     LoginRoutingModule,
-    AppRoutingModule
+    CadastroPjModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

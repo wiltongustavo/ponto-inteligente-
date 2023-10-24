@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Login } from '../../models/login.model'; 
+import { Login } from '../../models/login.model';
+import { LoginService } from '../../services';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +12,7 @@ import { Login } from '../../models/login.model';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
-  constructor(private formBuilder: FormBuilder, private matSnackBar: MatSnackBar, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private matSnackBar: MatSnackBar, private router: Router, private loginService: LoginService) {
 
   }
   ngOnInit(): void {
@@ -21,18 +22,36 @@ export class LoginComponent implements OnInit {
   createForm() {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      senha: ['', [Validators.required, Validators.minLength(6)]]
     })
   }
   login() {
     if (this.form.invalid) {
-      this.matSnackBar.open(
-        "Dados inválidos", "Error", { duration: 5000 }
-      );
       return;
     }
     const login: Login = this.form.value
-    alert(JSON.stringify(login));
+    this.loginService.logar(login).subscribe({
+      next: response => {
+        console.log(JSON.stringify(response));
+        localStorage['token'] = response['data']['token'];
+        const usuarioData = JSON.parse(atob(response['data']['token'].split('.')[1]));
+        console.log(JSON.stringify(usuarioData))
+        if (usuarioData['role'] === 'ROLE_ADMIN') {
+          this.router.navigate(['/admin'])
+          alert('Admin router')
+        } else {
+          this.router.navigate(['/funcionario'])
+          alert('User router')
+        }
+      },
+      error: error => {
+        let msg: string = "Tente novamente em instantes.";
+        if (error['status'] === 401) {
+          msg = "Email/senha inválido(s)."
+        }
+        this.matSnackBar.open(msg, "Erro", { duration: 5000 })
+      }
+    })
   }
 
 }
