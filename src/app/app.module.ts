@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import {MatButtonModule} from '@angular/material/button';
 import { LoginModule, LoginRoutingModule, CadastroPjModule } from './auth';
 import { AppRoutingModule } from './app-routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
     LoginModule,
     LoginRoutingModule,
     CadastroPjModule,
+    FlexLayoutModule,
     AppRoutingModule,
   ],
   providers: [],

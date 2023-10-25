@@ -1,39 +1,50 @@
-<form [formGroup]="form" fxLayoutAlign="center" novalidate>
-    <mat-list>
-      <mat-list-item>
-        <mat-form-field>
-          <input matInput placeholder="Email" 
-              formControlName="email">
-        </mat-form-field>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-form-field>
-          <input type="password" matInput placeholder="Senha"
-              formControlName="senha">
-        </mat-form-field>
-        <span matTooltip="Senha deve conter ao menos 6 caracteres">
-          <mat-icon>help</mat-icon>
-        </span>
-      </mat-list-item>
-      <mat-list-item fxLayoutAlign="center">
-        <button mat-raised-button color="primary"
-            [disabled]="form.invalid" (click)="login()">
+<div fxLayoutAlign="center center" fxFlexFill class="fundo">
+  
+    <div class="container" id="container">
+      <div class="form-container sign-up">
+        <form>
+          <h1>Create Account</h1>
+          <div class="social-icons">
+            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your email for registeration</span>
+          <input type="text" placeholder="Name">
+          <input type="email" placeholder="Email">
+          <input type="password" placeholder="Password">
+          <button>Sign Up</button>
+        </form>
+      </div>
+      <div class="form-container sign-in">
+        <form [formGroup]="form"  novalidate>
+          <h1>Entrar</h1>
+          <span>Entre com Email e Senha.</span>
+          <input type="email"  placeholder="Email" formControlName="email">
+          <input type="password" placeholder="Senha" formControlName="senha">
+          <a href="#">Esqueceu a senha?</a>
+          <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="login()">
             Entrar
-        </button>
-      </mat-list-item>
-      <mat-list-item>
-        <a mat-button color="primary" routerLink="/cadastro-pf">
-            Cadastrar PF
-        </a>
-        <a mat-button color="primary" routerLink="/cadastro-pj">
-            Cadastrar PJ
-        </a>
-      </mat-list-item>
-    </mat-list> 
-  </form>
-  
-  
-  
-  
-  
-  
+          </button>
+        </form>
+      </div>
+      <div class="toggle-container">
+        <div class="toggle">
+          <div class="toggle-panel toggle-left">
+            <h1>Welcome Back!</h1>
+            <p>Enter your personal details to use all of site features</p>
+            <button class="hidden" id="login">Sign In</button>
+          </div>
+          <div class="toggle-panel toggle-right">
+            <h1>Bem vindo, ao sistema de registro de ponto!</h1>
+            <p>Realize o seu cadastro.</p>
+            <button class="hidden" id="register">cadastro-pf</button>
+            <button class="hidden" id="register">cadastro-pj</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</div>
