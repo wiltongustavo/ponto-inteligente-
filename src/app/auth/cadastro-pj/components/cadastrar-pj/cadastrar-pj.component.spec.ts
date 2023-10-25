@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastrartPjComponent } from './cadastrart-pj.component';
+import { CadastrarPjComponent } from './cadastrar-pj.component';
 
 describe('CadastrartPjComponent', () => {
-  let component: CadastrartPjComponent;
-  let fixture: ComponentFixture<CadastrartPjComponent>;
+  let component: CadastrarPjComponent;
+  let fixture: ComponentFixture<CadastrarPjComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [CadastrartPjComponent]
+      declarations: [CadastrarPjComponent]
     });
-    fixture = TestBed.createComponent(CadastrartPjComponent);
+    fixture = TestBed.createComponent(CadastrarPjComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

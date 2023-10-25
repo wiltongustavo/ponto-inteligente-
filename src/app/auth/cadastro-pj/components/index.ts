@@ -1,1 +1,2 @@
-export * from './cadastrart-pj';
+export * from './cadastrar-pj';
+export * from './cadastro-pj.component';
