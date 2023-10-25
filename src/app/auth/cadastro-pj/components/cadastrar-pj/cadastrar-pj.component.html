@@ -1,13 +1,16 @@
 <div fxLayoutAlign="center center" fxFlexFill class="fundo">
     <div class="container" id="container">
         <div class="form-container sign-in">
-            <form>
+            <form [formGroup]="form" novalidate>
                 <h1>Criar Conta PJ</h1>
                 <span>Preencha o formulario para criar o seu cadastro-PJ.</span>
-                <input required type="text" placeholder="Name">
-                <input required="email" placeholder="Email">
-                <input required ="password" placeholder="Password">
-                <button mat-raised-button color="primary">Cadastrar</button>
+                <input type="text" formControlName="nome" required  placeholder="Nome">
+                <input type="email" formControlName="email" required  placeholder="Email">
+                <input type="password" formControlName="senha" required  placeholder="Senha">
+                <input type="text" formControlName="cpf"  mask="000.000.000-00" required placeholder="CPF">
+                <input type="text" formControlName="razaoSocial" required placeholder="Razão Social">
+                <input type="text" formControlName="cnpj" mask="00.000.000/0000-00" required placeholder="CNPJ">
+                <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="cadastrarPj()">Cadastrar</button>
             </form>
         </div>
         <div class="toggle-container">

@@ -14,7 +14,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { LoginService } from './services';
 import { MatCardModule } from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
 @NgModule({
   declarations: [
     LoginComponent,
@@ -34,7 +35,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     FlexLayoutModule,
     MatCardModule,
     MatFormFieldModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
-  providers: [LoginService,]
+  providers: [LoginService, provideEnvironmentNgxMask()]
 })
 export class LoginModule { }
