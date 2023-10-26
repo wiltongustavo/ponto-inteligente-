@@ -14,6 +14,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { CadastroPjService } from './services';
 
 @NgModule({
   declarations: [
@@ -31,11 +33,13 @@ import { provideEnvironmentNgxMask } from 'ngx-mask';
     MatSnackBarModule,
     NgxMaskDirective,
     NgxMaskPipe,
+    SharedModule
   
     
   ],
   providers:[
-    provideEnvironmentNgxMask()
+    provideEnvironmentNgxMask(),
+    CadastroPjService
   ]
 })
 export class CadastroPjModule { }

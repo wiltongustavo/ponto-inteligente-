@@ -4,13 +4,53 @@
             <form [formGroup]="form" novalidate>
                 <h1>Criar Conta PJ</h1>
                 <span>Preencha o formulario para criar o seu cadastro-PJ.</span>
-                <input type="text" formControlName="nome" required  placeholder="Nome">
-                <input type="email" formControlName="email" required  placeholder="Email">
-                <input type="password" formControlName="senha" required  placeholder="Senha">
-                <input type="text" formControlName="cpf"  mask="000.000.000-00" required placeholder="CPF">
-                <input type="text" formControlName="razaoSocial" required placeholder="Razão Social">
-                <input type="text" formControlName="cnpj" mask="00.000.000/0000-00" required placeholder="CNPJ">
-                <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="cadastrarPj()">Cadastrar</button>
+                <div>
+                    <input type="text" formControlName="nome" required placeholder="Nome">
+                    <span class="error-message"
+                        *ngIf="form.get('nome').hasError('required') && (form.get('nome').touched || form.get('nome').dirty)">
+                        Este campo é obrigatório.
+                    </span>
+                </div>
+
+                <div>
+                    <input type="email" formControlName="email" required placeholder="Email">
+                    <span class="error-message"
+                        *ngIf="form.get('email').hasError('required') && (form.get('email').touched || form.get('email').dirty)">
+                        Este campo é obrigatório.
+                    </span>
+                </div>
+                <div>
+                    <input type="password" formControlName="senha" required placeholder="Senha">
+                    <span class="error-message"
+                        *ngIf="form.get('senha').hasError('required') && (form.get('senha').touched || form.get('senha').dirty)">
+                        Este campo é obrigatório.
+                    </span>
+                </div>
+                <div>
+                    <input type="text" formControlName="cpf" mask="000.000.000-00" required placeholder="CPF">
+                    <span class="error-message"
+                        *ngIf="form.get('cpf').hasError('required') && (form.get('cpf').touched || form.get('cpf').dirty)">
+                        Este campo é obrigatório.
+                    </span>
+                </div>
+                <div>
+                    <input type="text" formControlName="razaoSocial" required placeholder="Razão Social">
+                    <span class="error-message"
+                        *ngIf="form.get('razaoSocial').hasError('required') && (form.get('razaoSocial').touched || form.get('razaoSocial').dirty)">
+                        Este campo é obrigatório.
+                    </span>
+                </div>
+                <div>
+                    <input type="text" formControlName="cnpj" mask="00.000.000/0000-00" required placeholder="CNPJ">
+                    <span class="error-message"
+                        *ngIf="form.get('cnpj').hasError('required') && (form.get('cnpj').touched || form.get('cnpj').dirty)">
+                        Este campo é obrigatório.
+                    </span>
+                </div>
+
+
+                <button mat-raised-button color="primary" [disabled]="form.invalid"
+                    (click)="cadastrarPj()">Cadastrar</button>
             </form>
         </div>
         <div class="toggle-container">
