@@ -10,6 +10,8 @@ import { provideEnvironmentNgxMask } from 'ngx-mask';
 import { CadastroPfModule, CadastroPfRoutingModule } from './auth/cadastro-pf';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import { FuncionarioModule, FuncionarioRoutingModule } from './funcionario';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 
 @NgModule({
@@ -22,14 +24,17 @@ import {MatIconModule} from '@angular/material/icon';
     FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
     LoginModule,
     LoginRoutingModule,
     CadastroPjModule,
     CadastroPjRoutingModule,
     CadastroPfModule,
     CadastroPfRoutingModule,
-    NgxMaskDirective,
-    NgxMaskPipe,
+    FuncionarioModule,
+    FuncionarioRoutingModule,
+    DashboardModule,
 
     AppRoutingModule,
   ],
