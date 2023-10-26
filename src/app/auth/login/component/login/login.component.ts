@@ -32,16 +32,12 @@ export class LoginComponent implements OnInit {
     const login: Login = this.form.value
     this.loginService.logar(login).subscribe({
       next: response => {
-        console.log(JSON.stringify(response));
         localStorage['token'] = response['data']['token'];
         const usuarioData = JSON.parse(atob(response['data']['token'].split('.')[1]));
-        console.log(JSON.stringify(usuarioData))
         if (usuarioData['role'] === 'ROLE_ADMIN') {
           this.router.navigate(['/admin'])
-          alert('Admin router')
         } else {
           this.router.navigate(['/funcionario'])
-          alert('User router')
         }
       },
       error: error => {

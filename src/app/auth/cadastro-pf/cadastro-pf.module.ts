@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { 
-	CadastrarPjComponent, 
-	CadastroPjComponent 
-} from './components';
-
+import { CadastrarPfComponent } from './components';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -14,13 +10,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { provideEnvironmentNgxMask } from 'ngx-mask';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { CadastroPjService } from './services';
+import { SharedModule } from 'src/app/shared';
+import { CadastroPfComponent } from './components/cadastro-pf.component';
+import { CadastrarPfService } from './services';
 
 @NgModule({
   declarations: [
-    CadastrarPjComponent,
-    CadastroPjComponent,
+    CadastrarPfComponent,
+    CadastroPfComponent
   ],
   imports: [
     CommonModule,
@@ -34,12 +31,7 @@ import { CadastroPjService } from './services';
     NgxMaskDirective,
     NgxMaskPipe,
     SharedModule
-  
-    
   ],
-  providers:[
-    provideEnvironmentNgxMask(),
-    CadastroPjService
-  ]
+  providers:[ provideEnvironmentNgxMask(), CadastrarPfService]
 })
-export class CadastroPjModule { }
+export class CadastroPfModule { }
