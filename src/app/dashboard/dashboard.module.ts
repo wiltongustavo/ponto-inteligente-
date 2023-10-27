@@ -11,12 +11,21 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
 import { SharedModule } from '../shared';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { ChartsComponent } from './components/charts/charts.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
 @NgModule({
   declarations: [
-    PainelComponent, DashboardComponent
+    PainelComponent, DashboardComponent, NavbarComponent, CardsComponent, ChartsComponent
   ],
   imports: [
     CommonModule,
@@ -26,10 +35,16 @@ import { SharedModule } from '../shared';
     ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,
+    MatIconModule,
     MatInputModule,
     MatSnackBarModule,
+    MatDividerModule,
+    MatListModule,
     NgxMaskDirective,
     NgxMaskPipe,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
     SharedModule,
   ]
 })

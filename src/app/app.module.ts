@@ -12,7 +12,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { FuncionarioModule, FuncionarioRoutingModule } from './funcionario';
 import { DashboardModule } from './dashboard/dashboard.module';
-
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -30,12 +32,15 @@ import { DashboardModule } from './dashboard/dashboard.module';
     LoginRoutingModule,
     CadastroPjModule,
     CadastroPjRoutingModule,
+    MatSidenavModule,
+    MatListModule,
     CadastroPfModule,
     CadastroPfRoutingModule,
     FuncionarioModule,
     FuncionarioRoutingModule,
     DashboardModule,
-
+    MatMenuModule,
+    
     AppRoutingModule,
   ],
   providers: [provideEnvironmentNgxMask()],

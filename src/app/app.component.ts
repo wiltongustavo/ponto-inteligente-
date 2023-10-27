@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  showFiller = false;
   constructor(private router: Router) {
 
   }
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
 
   logout() {
     delete localStorage['token'];
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   authorization(): boolean{

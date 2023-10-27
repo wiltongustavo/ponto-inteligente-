@@ -2,19 +2,21 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { 
-	LancamentoComponent,ListagemComponent
+	FuncionarioComponent,
+	LancamentoComponent, 
+	ListagemComponent 
 } from './components';
 
-export const funcionarioRoutes: Routes = [
+export const FuncionarioRoutes: Routes = [
 	{
-		path: 'funcionario',
-		component: LancamentoComponent,
+		path: '',
+		component: FuncionarioComponent,
 		children: [
 		  {
-			path: '', 
+			path: 'funcionario', 
 			component: LancamentoComponent 
 		  },
-          {
+		  {
 			path: 'listagem', 
 			component: ListagemComponent 
 		  }
@@ -24,7 +26,7 @@ export const funcionarioRoutes: Routes = [
 
 @NgModule({
   imports: [
-  	RouterModule.forChild(funcionarioRoutes)
+    RouterModule.forChild(FuncionarioRoutes)
   ],
   exports: [
     RouterModule
@@ -32,5 +34,6 @@ export const funcionarioRoutes: Routes = [
 })
 export class FuncionarioRoutingModule {
 }
+
 
 

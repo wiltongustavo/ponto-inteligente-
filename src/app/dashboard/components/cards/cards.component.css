@@ -1,0 +1,112 @@
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.35rem;
+  }
+  
+  .card > hr {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  .card > .list-group {
+    border-top: inherit;
+    border-bottom: inherit;
+  }
+  
+  .card > .list-group:first-child {
+    border-top-width: 0;
+    border-top-left-radius: calc(0.35rem - 1px);
+    border-top-right-radius: calc(0.35rem - 1px);
+  }
+  
+  .card > .list-group:last-child {
+    border-bottom-width: 0;
+    border-bottom-right-radius: calc(0.35rem - 1px);
+    border-bottom-left-radius: calc(0.35rem - 1px);
+  }
+  
+  .card > .card-header + .list-group,
+  .card > .list-group + .card-footer {
+    border-top: 0;
+  }
+  
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+  }
+  
+  .card-title {
+    margin-bottom: 0.75rem;
+  }
+  
+  .card-subtitle {
+    margin-top: -0.375rem;
+    margin-bottom: 0;
+  }
+  
+  .card-text:last-child {
+    margin-bottom: 0;
+  }
+  
+  .card-link:hover {
+    text-decoration: none;
+  }
+  
+  .card-link + .card-link {
+    margin-left: 1.25rem;
+  }
+  
+  .card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #e3e6f0;
+  }
+  
+
+ 
+.border-left-primary {
+    border-left: 0.25rem solid #4e73df !important;
+  }
+  
+  .border-bottom-primary {
+    border-bottom: 0.25rem solid #4e73df !important;
+  }
+  
+  .border-left-secondary {
+    border-left: 0.25rem solid #858796 !important;
+  }
+  
+  .border-bottom-secondary {
+    border-bottom: 0.25rem solid #858796 !important;
+  }
+  
+  .border-left-success {
+    border-left: 0.25rem solid #1cc88a !important;
+  }
+  
+  .border-bottom-success {
+    border-bottom: 0.25rem solid #1cc88a !important;
+  }
+  
+  .border-left-info {
+    border-left: 0.25rem solid #36b9cc !important;
+  }
+  
+  .border-bottom-info {
+    border-bottom: 0.25rem solid #36b9cc !important;
+  }
+  
+  .border-left-warning {
+    border-left: 0.25rem solid #f6c23e !important;
+  }
+  

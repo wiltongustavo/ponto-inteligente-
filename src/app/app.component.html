@@ -1,15 +1,28 @@
-<mat-toolbar>
-    <span>Ponto Inteligente</span>
-    <span class="toolbar-spacer"></span>
-    <a (click)="logout()" style="cursor: pointer"
-      alt="Sair" title="Sair"
-      *ngIf="authorization()">
-      <mat-icon 
-          class="toolbar-icon"
-          matTooltip="Sair">
-          exit_to_app
+<mat-toolbar *ngIf="authorization()" class="navbar-fixed">
+  <span>Ponto Inteligente</span>
+  <span class="toolbar-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="navbutton" aria-label="Example icon-button with a menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu class="navbutton" #menu="matMenu">
+    <button mat-menu-item routerLink="/">
+      <mat-icon>perm_identity</mat-icon>
+      <span>Perfil</span>
+    </button>
+    <button mat-menu-item routerLink="/listagem">
+      <mat-icon>playlist_add_chec</mat-icon>
+      <span>Listar Pontos</span>
+    </button>
+    <button mat-menu-item routerLink="/funcionario">
+      <mat-icon>list</mat-icon>
+      <span>Registrar Pontos</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon class="toolbar-icon" matTooltip="Sair">
+        exit_to_app
       </mat-icon>
-    </a>
-  </mat-toolbar>
-  <router-outlet></router-outlet>
-  
+      <span>Sair</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<router-outlet></router-outlet>

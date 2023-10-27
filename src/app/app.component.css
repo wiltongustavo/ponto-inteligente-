@@ -1,14 +1,21 @@
 .toolbar-icon{
     padding: 0 14px;
 }
-.toolbar-spacer {
-    flex: 1 1 auto;
-}
+
 mat-toolbar{
     background: #2d62a8;
-    background: linear-gradient(to right, #5c6bc0, #2d62a8);
 }
 
 mat-toolbar span{
+    flex: 1 1 auto;
     color: #fff;
 }
+.navbutton{
+    background: #2d62a8;
+    box-shadow: none;
+    border-radius: 5px;
+    border-width: 0px;
+    border-color: #fff;
+    color: #fff;
+}
+
