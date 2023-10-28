@@ -20,12 +20,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 
 @NgModule({
   declarations: [
-    PainelComponent, DashboardComponent, NavbarComponent, CardsComponent, ChartsComponent
+    PainelComponent, DashboardComponent, NavbarComponent, CardsComponent, ChartsComponent, SidebarComponent
   ],
   imports: [
     CommonModule,
@@ -46,6 +47,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatToolbarModule,
     MatMenuModule,
     SharedModule,
+  ],
+  exports:[
+    SidebarComponent
   ]
 })
 export class DashboardModule { }

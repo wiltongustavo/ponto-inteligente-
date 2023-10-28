@@ -3,7 +3,7 @@
 }
 
 mat-toolbar{
-    background: #2d62a8;
+    background: #4e73df;
 }
 
 mat-toolbar span{
@@ -11,7 +11,7 @@ mat-toolbar span{
     color: #fff;
 }
 .navbutton{
-    background: #2d62a8;
+    background: #4e73df;
     box-shadow: none;
     border-radius: 5px;
     border-width: 0px;

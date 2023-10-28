@@ -1,0 +1,89 @@
+<ul class="navbar-nav navbarColor sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" routerLink="/dashboard">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <mat-icon>playlist_add_check</mat-icon>
+        </div>
+        <div class="sidebar-brand-text mx-3">Ponto Inteligente <sup>1.0</sup></div>
+    </a>
+
+ 
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+    </li>
+
+
+  
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Dashboard
+    </div>
+
+    <!-- Nav Item - Perfil -->
+    <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+            <div style="display: flex; align-items: center;">
+                <mat-icon>perm_identity</mat-icon>
+                <div style="margin-left: 10px;">Perfil</div>
+            </div>
+        </a>
+    </li>
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/listagem">
+            <div style="display: flex; align-items: center;">
+                <mat-icon>view_list</mat-icon>
+                <div style="margin-left: 10px;">Listagem</div>
+            </div>
+        </a>
+    </li>
+
+    <!-- Nav Item - Tables -->
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/funcionario">
+            <div style="display: flex; align-items: center;">
+                <mat-icon>group</mat-icon>
+                <div style="margin-left: 10px;">Funcionario</div>
+            </div>
+        </a>
+    </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+    <!--Gestão de controle-->
+    <div class="sidebar-heading">
+        Controle de Gestão
+    </div>
+    <li class="nav-item">
+
+        <div class="nav-link" [matMenuTriggerFor]="menu">
+            <div style="display: flex; align-items: center;">
+                <mat-icon>card_membership</mat-icon>
+                <div style="margin-left: 10px;">Vendas</div>
+                <mat-icon style="font-size: 1.4rem;">keyboard_arrow_down</mat-icon>
+            </div>
+        </div>
+
+        <mat-menu class="navbutton" #menu="matMenu">
+            <button mat-menu-item routerLink="/">
+                <mat-icon> list_alt</mat-icon>
+                <span>Volumetria</span>
+            </button>
+            <button mat-menu-item routerLink="/listagem">
+                <mat-icon>dashboard</mat-icon>
+                <span>Campanhas</span>
+            </button>
+            <button mat-menu-item routerLink="/funcionario">
+                <mat-icon>calendar_today</mat-icon>
+                <span>Consultar por periodo</span>
+            </button>
+        </mat-menu>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+
+</ul>
