@@ -1,5 +1,5 @@
 export interface CadastroPjRequest {
-    id: string,
+    id?: string,
     nome: string,
     email: string,
     senha: string,

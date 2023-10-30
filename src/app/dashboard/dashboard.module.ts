@@ -21,6 +21,7 @@ import { CardsComponent } from './components/cards/cards.component';
 import { ChartsComponent } from './components/charts/charts.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -47,6 +48,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     MatToolbarModule,
     MatMenuModule,
     SharedModule,
+    MatCardModule
   ],
   exports:[
     SidebarComponent

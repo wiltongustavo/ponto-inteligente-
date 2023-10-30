@@ -34,7 +34,7 @@
         <a class="nav-link" routerLink="/listagem">
             <div style="display: flex; align-items: center;">
                 <mat-icon>view_list</mat-icon>
-                <div style="margin-left: 10px;">Listagem</div>
+                <div style="margin-left: 10px;">Lançamentos</div>
             </div>
         </a>
     </li>
@@ -61,7 +61,7 @@
         <div class="nav-link" [matMenuTriggerFor]="menu">
             <div style="display: flex; align-items: center;">
                 <mat-icon>card_membership</mat-icon>
-                <div style="margin-left: 10px;">Vendas</div>
+                <div style="margin-left: 10px;">Gerenciar</div>
                 <mat-icon style="font-size: 1.4rem;">keyboard_arrow_down</mat-icon>
             </div>
         </div>
@@ -69,15 +69,15 @@
         <mat-menu class="navbutton" #menu="matMenu">
             <button mat-menu-item routerLink="/">
                 <mat-icon> list_alt</mat-icon>
-                <span>Volumetria</span>
+                <span>Alterar/Incluir  Ponto</span>
             </button>
             <button mat-menu-item routerLink="/listagem">
                 <mat-icon>dashboard</mat-icon>
-                <span>Campanhas</span>
+                <span>Assinatura de Ponto</span>
             </button>
             <button mat-menu-item routerLink="/funcionario">
                 <mat-icon>calendar_today</mat-icon>
-                <span>Consultar por periodo</span>
+                <span>Agendamento de  Ferias</span>
             </button>
         </mat-menu>
     </li>

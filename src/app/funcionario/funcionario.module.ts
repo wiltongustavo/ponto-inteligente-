@@ -11,8 +11,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { FuncionarioRoutingModule } from './funcionario-routing.module';
-
-
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatListModule } from '@angular/material/list';
+import {MatSortModule} from '@angular/material/sort';
+import {MatCardModule} from '@angular/material/card';
+import {MatTabsModule} from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -22,8 +27,16 @@ import { FuncionarioRoutingModule } from './funcionario-routing.module';
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule,
+    MatPaginatorModule,
     FuncionarioRoutingModule,
+    MatTooltipModule,
+    MatIconModule,
     FlexLayoutModule,
+    MatListModule,
+    MatSortModule,
+    MatCardModule,
+    MatTabsModule,
     ReactiveFormsModule,
     HttpClientModule,
     MatButtonModule,

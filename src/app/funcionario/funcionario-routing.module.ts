@@ -9,11 +9,11 @@ import {
 
 export const FuncionarioRoutes: Routes = [
 	{
-		path: '',
+		path: 'funcionario',
 		component: FuncionarioComponent,
 		children: [
 		  {
-			path: 'funcionario', 
+			path: '', 
 			component: LancamentoComponent 
 		  },
 		  {
