@@ -22,12 +22,15 @@ import { ChartsComponent } from './components/charts/charts.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {MatCardModule} from '@angular/material/card';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { IllustrationsComponent } from './components/illustrations/illustrations.component';
+import { DevelopmentComponent } from './components/development/development.component';
 
 
 
 @NgModule({
   declarations: [
-    PainelComponent, DashboardComponent, NavbarComponent, CardsComponent, ChartsComponent, SidebarComponent
+    PainelComponent, DashboardComponent, NavbarComponent, CardsComponent, ChartsComponent, SidebarComponent, ProjectsComponent, IllustrationsComponent, DevelopmentComponent
   ],
   imports: [
     CommonModule,

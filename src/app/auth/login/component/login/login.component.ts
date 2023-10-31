@@ -12,6 +12,7 @@ import { LoginService } from '../../services';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+  custumerInfos: Object
   constructor(private formBuilder: FormBuilder, private matSnackBar: MatSnackBar, private router: Router, private loginService: LoginService) {
 
   }
@@ -34,6 +35,8 @@ export class LoginComponent implements OnInit {
       next: response => {
         localStorage['token'] = response['data']['token'];
         const usuarioData = JSON.parse(atob(response['data']['token'].split('.')[1]));
+        this.custumerInfos = JSON.stringify({usuarioData});
+        localStorage['custumerInfos'] = this.custumerInfos;
         if (usuarioData['role'] === 'ROLE_ADMIN') {
           this.router.navigate(['/dashboard'])
         } else {
