@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment as env } from '../../../environments/environment';
 
@@ -36,6 +36,3 @@ export class LancamentoService {
   }
 
 }
-
-
-aa
