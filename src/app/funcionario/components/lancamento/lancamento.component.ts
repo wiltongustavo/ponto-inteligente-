@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MatSnackBar } from '@angular/material/snack-bar'; 
 import { Router } from '@angular/router';
 
 import { 
-  Tipo
+  Tipo, 
+  LancamentoService, 
+  Lancamento, 
+  HttpUtilService 
 } from '../../../shared';
 
 import * as moment from 'moment';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 declare var navigator: any;
 
@@ -24,8 +26,10 @@ export class LancamentoComponent implements OnInit {
   ultimoTipoLancado: string;
 
   constructor(
-  	private snackBar: MatSnackBar,
-    private router: Router) { }
+    private snackBar: MatSnackBar,
+    private router: Router,
+    private httpUtil: HttpUtilService,
+    private lancamentoService: LancamentoService) { }
 
   ngOnInit() {
   	this.dataAtual = moment().format('DD/MM/YYYY HH:mm:ss');
@@ -60,12 +64,45 @@ export class LancamentoComponent implements OnInit {
   }
 
   obterUltimoLancamento() {
-    this.ultimoTipoLancado = '';
+    this.lancamentoService.buscarUltimoTipoLancado()
+      .subscribe(
+        {
+          next: response => {
+            this.ultimoTipoLancado = response.data ? response.data.tipo : '';
+          },
+          error: error => {
+            const msg: string = "Erro obtendo último lançamento.";
+            this.snackBar.open(msg, "Erro", { duration: 5000 });
+          }
+        }
+      );
   }
 
   cadastrar(tipo: Tipo) {
-  	alert(`Tipo: ${tipo}, dataAtualEn: ${this.dataAtualEn}, 
-  		geolocation: ${this.geoLocation}`);
+  	const lancamento: Lancamento = {
+      data:this.dataAtualEn,
+      tipo:tipo,
+      localizacao:this.geoLocation,
+      funcionarioId: this.httpUtil.obterIdUsuario()
+    };
+    
+    this.lancamentoService.cadastrar(lancamento)
+      .subscribe(
+       {
+        next: response =>{
+          const msg: string = "Lançamento realizado com sucesso!";
+          this.snackBar.open(msg, "Sucesso", { duration: 5000 });
+          this.router.navigate(['/funcionario/listagem']);
+        },
+        error: error => {
+          let msg: string = "Tente novamente em instantes.";
+          if (error.status == 400) {
+            msg = error.error.errors.join(' ');
+          }
+          this.snackBar.open(msg, "Erro", { duration: 5000 });
+        }
+       }
+      );
   }
 
   obterUrlMapa(): string {

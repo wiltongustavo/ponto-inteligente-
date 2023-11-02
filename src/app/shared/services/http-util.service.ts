@@ -1,29 +1,31 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http'
+import { HttpHeaders } from '@angular/common/http';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class HttpUtilService {
 
   constructor() { }
-  headers() {
-    let httpHeaders: HttpHeaders = new HttpHeaders();
 
-    if (localStorage['token']) {
-      httpHeaders = httpHeaders.set('Authorization', 'Bearer' + localStorage['token']);
-    }
+  headers() {
+  	let httpHeaders: HttpHeaders = new HttpHeaders();
+	
+  	if (localStorage['token']) {
+  	  httpHeaders = httpHeaders.set(
+  	  	'Authorization', 'Bearer ' + localStorage['token']
+  	  );
+  	}
+    
     return { headers: httpHeaders };
   }
 
   obterIdUsuario(): string {
-    if (!localStorage['token']) {
-      return '';
-    }
-    const dadosUsuario = this.obterDadosUsuario();
-    return dadosUsuario ? dadosUsuario.id : '';
+  	if (!localStorage['token']) {
+  	  return '';
+  	}
+  	const dadosUsuario = this.obterDadosUsuario();
+  	return dadosUsuario ? dadosUsuario.id : '';
   }
-  
+
   obterIdEmpresa(): string {
     if (!localStorage['token']) {
       return '';
@@ -31,12 +33,19 @@ export class HttpUtilService {
     const dadosUsuario = this.obterDadosUsuario();
     return dadosUsuario ? dadosUsuario.empresaId : '';
   }
-  
-  obterDadosUsuario(){
+
+  obterDadosUsuario() {
     if (!localStorage['token']) {
       return '';
     }
-    return JSON.parse(localStorage['custumerInfos']);
+    return JSON.parse(atob(localStorage['token'].split('.')[1]));
   }
+	
 }
+
+
+
+
+
+
 

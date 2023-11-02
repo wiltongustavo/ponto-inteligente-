@@ -18,7 +18,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
-
+import { HttpUtilService, LancamentoService } from '../shared';
 
 @NgModule({
   declarations: [
@@ -46,6 +46,6 @@ import { MatIconModule } from '@angular/material/icon';
     NgxMaskPipe,
     SharedModule,
   ],
-  providers: [provideEnvironmentNgxMask(),]
+  providers: [provideEnvironmentNgxMask(), HttpUtilService, LancamentoService]
 })
 export class FuncionarioModule { }
