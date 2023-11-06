@@ -11,14 +11,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { FuncionarioRoutingModule } from './funcionario-routing.module';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 import { MatListModule } from '@angular/material/list';
 import {MatSortModule} from '@angular/material/sort';
 import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
-import { HttpUtilService, LancamentoService } from '../shared';
+import { HttpUtilService, LancamentoService, PtBrMatPaginatorIntl } from '../shared';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -43,9 +44,10 @@ import { HttpUtilService, LancamentoService } from '../shared';
     MatInputModule,
     MatSnackBarModule,
     NgxMaskDirective,
+    MatTableModule,
     NgxMaskPipe,
     SharedModule,
   ],
-  providers: [provideEnvironmentNgxMask(), HttpUtilService, LancamentoService]
+  providers: [provideEnvironmentNgxMask(), HttpUtilService, LancamentoService, {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}]
 })
 export class FuncionarioModule { }
