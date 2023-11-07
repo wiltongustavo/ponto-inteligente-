@@ -22,7 +22,7 @@ import { HttpUtilService, LancamentoService, PtBrMatPaginatorIntl } from '../sha
 import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
+import { DatePipe } from '@angular/common'
 
 @NgModule({
   declarations: [
@@ -53,6 +53,6 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatSlideToggleModule,
     SharedModule,
   ],
-  providers: [provideEnvironmentNgxMask(), HttpUtilService, LancamentoService, {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}]
+  providers: [provideEnvironmentNgxMask(), HttpUtilService, LancamentoService, {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}, DatePipe]
 })
 export class FuncionarioModule { }

@@ -5,21 +5,20 @@
   <section>
     <div class="button-container" style="margin-right: 5px;">
       <button mat-mini-fab color="primary" #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="mainMenuButton">
-        <mat-icon>list</mat-icon>
+        <mat-icon>edit</mat-icon>
       </button>
   
       <mat-menu #mainMenuButton="matMenu">
         <span (click)="$event.stopPropagation()" >
           <mat-slide-toggle>
           </mat-slide-toggle>
-          
           <br>
         </span>
       </mat-menu>
     </div>
   
     <div class="button-container" style="margin-right: 20px;">
-      <button mat-mini-fab color="primary" >
+      <button mat-mini-fab color="primary" (click)="exportPdf()">
         <mat-icon>print</mat-icon>
       </button>
     </div>
@@ -27,7 +26,7 @@
     <ng-container>
       <mat-form-field appearance="outline" class="mr-1">
         <mat-label>Buscar</mat-label>
-        <input matInput placeholder="Exemplo: INICIO_TRABALHO" #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Exemplo: INICIO_TRABALHO" #input>
       </mat-form-field>
     </ng-container>
   </section>
@@ -42,7 +41,7 @@
           Data
         </mat-header-cell>
         <mat-cell *matCellDef="let lancamento">
-          {{ lancamento.data }}
+          {{ lancamento.data | date: 'dd/MM/yyyy hh:mm a'}}
         </mat-cell>
       </ng-container>
 

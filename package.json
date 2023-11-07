@@ -27,6 +27,8 @@
     "hammer": "^0.0.5",
     "jquery": "^3.7.1",
     "js": "^0.1.0",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.7.1",
     "moment": "^2.29.4",
     "ng-multiselect-dropdown": "^1.0.0",
     "ngx-mask": "^16.3.9",

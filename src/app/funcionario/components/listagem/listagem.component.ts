@@ -7,11 +7,21 @@ import { Observable } from 'rxjs';
 import { Sort } from '@angular/material/sort';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import jsPDF from "jspdf";
+import autoTable from "jspdf-autotable"
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-listagem',
   templateUrl: './listagem.component.html',
-  styleUrls: ['./listagem.component.css']
+  styleUrls: ['./listagem.component.css'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0px', visibility: 'collapse' })),
+      state('expanded', style({ height: '*', visibility: 'visible' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class ListagemComponent implements OnInit {
 
@@ -22,7 +32,7 @@ export class ListagemComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
   	private lancamentoService: LancamentoService,
-    private snackBar: MatSnackBar) { }
+    private snackBar: MatSnackBar, public datepipe: DatePipe) { }
 
   ngOnInit() {
 
@@ -39,6 +49,52 @@ export class ListagemComponent implements OnInit {
           this.snackBar.open(msg, "Erro", { duration: 5000 });
         }
       );
+  }
+
+   public applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  public exportPdf() {
+    var printHeaderData: any = [];
+    var printBodyData: any = [];
+
+    printHeaderData.push(this.colunas);
+
+    this.dataSource.data.forEach(e => {
+      var tempObj = [];
+      tempObj.push(this.datepipe.transform(e.data, 'dd/MM/yyyy hh:mm a'));
+      tempObj.push(e.tipo);
+      tempObj.push(e.localizacao);
+      printBodyData.push(tempObj);
+    });
+
+    var doc = new jsPDF('p','mm',[297, 210]);
+    doc.setFontSize(10);
+    autoTable(doc, {
+      // theme: "grid",
+      margin: {horizontal: 10},
+      bodyStyles: {valign: 'top'},
+      styles: {overflow: 'linebreak'},
+      head: printHeaderData,
+      body: printBodyData,
+      columnStyles: {
+        0: { cellWidth: 60 },
+        1: { cellWidth: 60 },
+        2: { cellWidth: 60 },
+      }
+    });
+
+    //Save PDF
+    doc.save('Filename.pdf')
+
+    //Open pdf in new tab
+    window.open(URL.createObjectURL(doc.output("blob")))
   }
 
 }
