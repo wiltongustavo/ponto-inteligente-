@@ -13,6 +13,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "rxjs-compat",
+              "validator",
+              "core-js",
+              "raf",
+              "xlsx",
+              "@babel/runtime",
+              "rgbcolor",
+              "moment",
+              "jspdf-autotable"
+            ],
             "outputPath": "dist/ponto-inteligente",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -29,9 +41,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": [
-             
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {

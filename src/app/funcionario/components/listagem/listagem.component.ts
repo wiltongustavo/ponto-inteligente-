@@ -8,7 +8,7 @@ import { Sort } from '@angular/material/sort';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import jsPDF from "jspdf";
+import { jsPDF} from "jspdf";
 import autoTable from "jspdf-autotable"
 import { DatePipe } from '@angular/common';
 @Component({
