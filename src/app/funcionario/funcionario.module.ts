@@ -23,6 +23,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { DatePipe } from '@angular/common'
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { DatePipe } from '@angular/common'
     NgxMaskPipe,
     MatMenuModule,
     MatSlideToggleModule,
+    MatToolbarModule,
     SharedModule,
   ],
   providers: [provideEnvironmentNgxMask(), HttpUtilService, LancamentoService, {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}, DatePipe]
