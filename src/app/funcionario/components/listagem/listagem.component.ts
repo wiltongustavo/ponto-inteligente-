@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataSource } from '@angular/cdk/collections';
-import { LancamentoService, Lancamento } from '../../../shared';
+import { LancamentoService, Lancamento, Tipo } from '../../../shared';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
@@ -40,6 +40,11 @@ export class ListagemComponent implements OnInit {
       .subscribe(
         data => {
           const lancamentos = data['data'] as Lancamento[];
+          lancamentos.forEach(item => {
+            item.data = this.datepipe.transform(item.data, 'dd/MM/yyyy hh:mm a');
+            item.tipo = this.obterTexto(item.tipo);
+          });
+          console.log(data)
           this.dataSource = new MatTableDataSource<Lancamento>(lancamentos);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
@@ -49,6 +54,28 @@ export class ListagemComponent implements OnInit {
           this.snackBar.open(msg, "Erro", { duration: 5000 });
         }
       );
+  }
+
+  obterTexto(tipo): string {
+  	let tipoDesc: string;
+  	switch (tipo) {
+  		case Tipo.INICIO_TRABALHO:
+  			tipoDesc = 'Início do trabalho';
+  			break;
+  		case Tipo.INICIO_ALMOCO:
+  			tipoDesc = 'Início do almoço';
+  			break;
+  		case Tipo.TERMINO_ALMOCO:
+  			tipoDesc = 'Término do almoço';
+  			break;
+  		case Tipo.TERMINO_TRABALHO:
+  			tipoDesc = 'Término do trabalho';
+  			break;
+  		default:
+  			tipoDesc = tipo;
+  			break;
+  	}
+  	return tipoDesc;
   }
 
    public applyFilter(event: Event) {
@@ -68,7 +95,7 @@ export class ListagemComponent implements OnInit {
 
     this.dataSource.data.forEach(e => {
       var tempObj = [];
-      tempObj.push(this.datepipe.transform(e.data, 'dd/MM/yyyy hh:mm a'));
+      tempObj.push(e.data);
       tempObj.push(e.tipo);
       tempObj.push(e.localizacao);
       printBodyData.push(tempObj);
@@ -77,7 +104,6 @@ export class ListagemComponent implements OnInit {
     var doc = new jsPDF('p','mm',[297, 210]);
     doc.setFontSize(10);
     autoTable(doc, {
-      // theme: "grid",
       margin: {horizontal: 10},
       bodyStyles: {valign: 'top'},
       styles: {overflow: 'linebreak'},
