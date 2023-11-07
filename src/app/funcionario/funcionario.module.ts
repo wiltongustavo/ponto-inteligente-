@@ -20,6 +20,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpUtilService, LancamentoService, PtBrMatPaginatorIntl } from '../shared';
 import {MatTableModule} from '@angular/material/table';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +49,8 @@ import {MatTableModule} from '@angular/material/table';
     NgxMaskDirective,
     MatTableModule,
     NgxMaskPipe,
+    MatMenuModule,
+    MatSlideToggleModule,
     SharedModule,
   ],
   providers: [provideEnvironmentNgxMask(), HttpUtilService, LancamentoService, {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}]

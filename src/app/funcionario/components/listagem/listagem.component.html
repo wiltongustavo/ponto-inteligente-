@@ -1,43 +1,72 @@
-<a mat-button color="warn" routerLink="/funcionario">
-	Adicionar lançamento
-</a>
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+<div class="container">
+  <button mat-button color="primary" class="button-redirect" routerLink="/funcionario">Adicionar lançamento</button>
 
-	<mat-header-row *matHeaderRowDef="colunas"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: colunas;"></mat-row>
 
-    <ng-container matColumnDef="data">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>
-        Data
-      </mat-header-cell>
-      <mat-cell *matCellDef="let lancamento">
-        {{ lancamento.data }}
-      </mat-cell>
+  <section>
+    <div class="button-container" style="margin-right: 5px;">
+      <button mat-mini-fab color="primary" #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="mainMenuButton">
+        <mat-icon>list</mat-icon>
+      </button>
+  
+      <mat-menu #mainMenuButton="matMenu">
+        <span (click)="$event.stopPropagation()" >
+          <mat-slide-toggle>
+          </mat-slide-toggle>
+          
+          <br>
+        </span>
+      </mat-menu>
+    </div>
+  
+    <div class="button-container" style="margin-right: 20px;">
+      <button mat-mini-fab color="primary" >
+        <mat-icon>print</mat-icon>
+      </button>
+    </div>
+  
+    <ng-container>
+      <mat-form-field appearance="outline" class="mr-1">
+        <mat-label>Buscar</mat-label>
+        <input matInput placeholder="Exemplo: INICIO_TRABALHO" #input>
+      </mat-form-field>
     </ng-container>
+  </section>
+  <div class="mat-elevation-z8 data-table">
+    <mat-table [dataSource]="dataSource" matSort>
 
-    <ng-container matColumnDef="tipo">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>
-        Tipo
-      </mat-header-cell>
-      <mat-cell *matCellDef="let lancamento">
-      	{{ lancamento.tipo }}
-      </mat-cell>
-    </ng-container>
+      <mat-header-row *matHeaderRowDef="colunas"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: colunas;"></mat-row>
 
-    <ng-container matColumnDef="localizacao">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>
-      	Localização
-      </mat-header-cell>
-      <mat-cell *matCellDef="let lancamento">
-      	{{ lancamento.localizacao }}
-      </mat-cell>
-    </ng-container>  
+      <ng-container matColumnDef="data">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Data
+        </mat-header-cell>
+        <mat-cell *matCellDef="let lancamento">
+          {{ lancamento.data }}
+        </mat-cell>
+      </ng-container>
 
-</mat-table>
-<mat-paginator
-    #paginattor
-    [pageSize]="10"
-    [pageSizeOptions]="[5,10,15]"
->
+      <ng-container matColumnDef="tipo">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Tipo
+        </mat-header-cell>
+        <mat-cell *matCellDef="let lancamento">
+          {{ lancamento.tipo }}
+        </mat-cell>
+      </ng-container>
 
-</mat-paginator>
+      <ng-container matColumnDef="localizacao">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Localização
+        </mat-header-cell>
+        <mat-cell *matCellDef="let lancamento">
+          {{ lancamento.localizacao }}
+        </mat-cell>
+      </ng-container>
+
+    </mat-table>
+    <mat-paginator #paginattor [pageSize]="10" [pageSizeOptions]="[5,10,15]">
+
+    </mat-paginator>
+  </div>
+</div>

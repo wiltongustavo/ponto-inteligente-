@@ -25,7 +25,7 @@ export class ListagemComponent implements OnInit {
     private snackBar: MatSnackBar) { }
 
   ngOnInit() {
-  debugger
+
     this.lancamentoService.listarTodosLancamentos()
       .subscribe(
         data => {
