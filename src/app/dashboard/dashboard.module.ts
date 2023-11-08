@@ -25,6 +25,7 @@ import {MatCardModule} from '@angular/material/card';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { IllustrationsComponent } from './components/illustrations/illustrations.component';
 import { DevelopmentComponent } from './components/development/development.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 
@@ -51,7 +52,8 @@ import { DevelopmentComponent } from './components/development/development.compo
     MatToolbarModule,
     MatMenuModule,
     SharedModule,
-    MatCardModule
+    MatCardModule,
+    MatSlideToggleModule,
   ],
   exports:[
     SidebarComponent

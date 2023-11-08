@@ -1,24 +1,21 @@
 <mat-card>
   <mat-card-content>
-    <div class="row">
-      <div class="col">
-        <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <mat-label>pesquisar</mat-label>
-            <input type="text" matInput placeholder="Ex. pat@example.com">
-          </mat-form-field>
-        </form>
+    <section>
+      <ng-container>
+        <mat-form-field appearance="outline" class="mr-1">
+          <mat-label>Buscar</mat-label>
+          <input matInput placeholder="Exemplo: INICIO_TRABALHO" #input>
+        </mat-form-field>
+      </ng-container>
 
-      </div>
-      <div class="col">
-      
-
-      </div>
-
-    </div>
-
-
+      <div class="button-container" style="margin-left: 5px;">
+        <button mat-mini-fab color="primary">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </div>  
+    </section>
 
 
   </mat-card-content>
 </mat-card>
+
