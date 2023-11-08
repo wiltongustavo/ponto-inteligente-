@@ -1,7 +1,5 @@
 <div class="container">
-  <button mat-button color="primary" class="button-redirect" routerLink="/funcionario">Adicionar lançamento</button>
-
-
+  
   <section>
     <div class="button-container" style="margin-right: 5px;">
       <button mat-mini-fab color="primary" #menuTrigger="matMenuTrigger" [matMenuTriggerFor]="mainMenuButton">
@@ -30,6 +28,11 @@
       </mat-form-field>
     </ng-container>
   </section>
+
+    
+    <div class="d-flex flex-row-reverse">
+      <button mat-button color="primary" class="button-redirect" routerLink="/funcionario">Adicionar lançamento</button>
+    </div>
   <div class="mat-elevation-z8 data-table">
     <mat-table [dataSource]="dataSource" matSort>
 

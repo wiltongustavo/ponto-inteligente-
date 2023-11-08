@@ -44,7 +44,6 @@ export class ListagemComponent implements OnInit {
             item.data = this.datepipe.transform(item.data, 'dd/MM/yyyy hh:mm a');
             item.tipo = this.obterTexto(item.tipo);
           });
-          console.log(data)
           this.dataSource = new MatTableDataSource<Lancamento>(lancamentos);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
