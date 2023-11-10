@@ -15,6 +15,9 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { AdminModule } from './admin';
+import { AdminRoutingModule } from './admin/admin-routing.module';
+import { DashboardRoutingModule } from './dashboard';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import {MatListModule} from '@angular/material/list';
     FuncionarioRoutingModule,
     DashboardModule,
     MatMenuModule,
-    
+    AdminModule,
+    AdminRoutingModule,
+    DashboardRoutingModule,
+
     AppRoutingModule,
   ],
   providers: [provideEnvironmentNgxMask()],

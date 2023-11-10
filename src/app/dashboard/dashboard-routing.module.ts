@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PainelComponent } from './painel';
+import { PainelComponent } from './components/painel';
 
 
 export const funcionarioRoutes: Routes = [

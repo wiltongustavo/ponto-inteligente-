@@ -10,7 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
-import { FuncionarioRoutingModule } from './funcionario-routing.module';
 import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 import { MatListModule } from '@angular/material/list';
 import {MatSortModule} from '@angular/material/sort';
@@ -34,7 +33,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     RouterModule,
     ReactiveFormsModule,
     MatPaginatorModule,
-    FuncionarioRoutingModule,
+
     MatTooltipModule,
     MatIconModule,
     FlexLayoutModule,

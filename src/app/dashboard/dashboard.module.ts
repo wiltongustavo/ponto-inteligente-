@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PainelComponent } from './components/painel/painel.component';
-import { DashboardComponent, DashboardRoutingModule } from './components';
+import { DashboardComponent } from './components';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -36,7 +36,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
   imports: [
     CommonModule,
     RouterModule,
-    DashboardRoutingModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     HttpClientModule,
