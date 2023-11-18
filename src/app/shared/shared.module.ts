@@ -3,18 +3,20 @@ import { CommonModule } from '@angular/common';
 import { MascaraDirective } from './directives/mascara.directive';
 import { PtBrMatPaginatorIntl } from './pt-br-mat-paginator-intl';
 import { TipoPipe } from './pipes/tipo.pipe';
+import { DataPipe } from './pipes';
 
 
 
 @NgModule({
   declarations: [
     MascaraDirective,
-    TipoPipe
+    TipoPipe,
+    DataPipe
   ],
   imports: [
     CommonModule
   ],
-  exports: [MascaraDirective, TipoPipe],
+  exports: [MascaraDirective, TipoPipe, DataPipe],
   providers: [ PtBrMatPaginatorIntl]
 })
 export class SharedModule { }
