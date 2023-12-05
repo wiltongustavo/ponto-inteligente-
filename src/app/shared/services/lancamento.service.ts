@@ -49,7 +49,6 @@ export class LancamentoService {
     pagina: number, 
     ordem: string, 
     direcao: string): Observable<any> {
-debugger
   const url: string = env.baseApiUrl + this.PATH + 
     this.PATH_LANCAMENTOS.replace('{funcionarioId}', funcionarioId);
   

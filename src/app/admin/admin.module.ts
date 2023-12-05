@@ -19,7 +19,7 @@ import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { HttpUtilService, LancamentoService, PtBrMatPaginatorIntl, SharedModule } from '../shared';
+import { FuncionarioService, HttpUtilService, LancamentoService, PtBrMatPaginatorIntl, SharedModule } from '../shared';
 
 
 
@@ -55,6 +55,7 @@ import { HttpUtilService, LancamentoService, PtBrMatPaginatorIntl, SharedModule 
     LancamentoService,
     HttpUtilService,
     MatPaginatorIntl,
+    FuncionarioService,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
     {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}
   ]
