@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListagemComponent, CadastroComponent, AtualizacaoComponent, AdminComponent } from './components';
+import { ListagemComponent, CadastroComponent, AtualizacaoComponent, AdminComponent, ConfirmarDialog } from './components';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AdminRoutingModule } from './admin-routing.module';
@@ -28,7 +28,8 @@ import { FuncionarioService, HttpUtilService, LancamentoService, PtBrMatPaginato
     ListagemComponent,
     CadastroComponent,
     AtualizacaoComponent,
-    AdminComponent
+    AdminComponent,
+    ConfirmarDialog
   ],
   imports: [
     CommonModule,
@@ -58,6 +59,7 @@ import { FuncionarioService, HttpUtilService, LancamentoService, PtBrMatPaginato
     FuncionarioService,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
     {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}
-  ]
+  ],
+
 })
 export class AdminModule { }

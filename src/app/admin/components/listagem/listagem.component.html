@@ -16,7 +16,7 @@
     </form>
     <div class="mat-elevation-z8 data-table">
         <mat-table #table [dataSource]="dataSource" matSort (matSortChange)="ordenar($event)">
-
+ 
             <ng-container matColumnDef="data">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>
                     Data
@@ -49,7 +49,7 @@
                 <mat-cell *matCellDef="let lancamento">
                     <a routerLink="{{ '/admin/atualizacao/' + lancamento.id }}"><mat-icon
                             matTooltip="Editar lançamento">create</mat-icon></a>
-                    <a (click)="remover(lancamento.id)" style="cursor: pointer"><mat-icon
+                    <a (click)="removerDialog(lancamento.id)" style="cursor: pointer"><mat-icon
                             matTooltip="Remover lançamento">clear</mat-icon></a>
                 </mat-cell>
             </ng-container>

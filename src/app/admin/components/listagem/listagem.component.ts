@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import {
   LancamentoService,
@@ -41,7 +41,8 @@ export class ListagemComponent implements OnInit {
     private httpUtil: HttpUtilService,
     private snackBar: MatSnackBar,
     private fb: FormBuilder,
-    private funcionarioService: FuncionarioService) { }
+    private funcionarioService: FuncionarioService,
+    private dialog: MatDialog) { }
 
   ngOnInit() {
     this.pagina = 0;
@@ -112,8 +113,27 @@ export class ListagemComponent implements OnInit {
       });
   }
 
+  removerDialog(lancamentoId: string){
+    const dialog = this.dialog.open(ConfirmarDialog, {});
+    dialog.afterClosed().subscribe(remove =>{
+      this.remover(lancamentoId);
+    })
+  }
   remover(lancamentoId: string) {
-    alert(lancamentoId);
+    this.lancamentoService.remover(lancamentoId).subscribe({
+      next:response =>{
+        const msg: string = "Lançamento removido com sucesso!";
+        this.snackBar.open(msg, "Sucesso", { duration: 5000})
+        this.exibirLancamentos();
+      },
+      error: error =>{
+        let msg: string = "Tente novamente mais tarde!";
+        if(error.status == 400){
+          msg = error.error.errors.join(' ');
+        }
+        this.snackBar.open(msg, "Erro", {duration: 5000})
+      }
+    })
   }
 
   paginar(pageEvent: PageEvent) {
@@ -135,10 +155,23 @@ export class ListagemComponent implements OnInit {
 
 
 
-
-
-
-
+@Component({
+  selector: 'confirmar-dialog',
+  template: `
+    <h1 mat-dialog-title>Deseja realmente remover o lançamento?</h1>
+    <div mat-dialog-actions>
+      <button mat-button  tabindex="-1">
+        Não
+      </button>
+      <button mat-button mat-dialog-close tabindex="2">
+        Sim
+      </button>
+    </div>
+  `,
+})
+export class ConfirmarDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+}
 
 
 
