@@ -20,6 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { FuncionarioService, HttpUtilService, LancamentoService, PtBrMatPaginatorIntl, SharedModule } from '../shared';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -47,6 +48,7 @@ import { FuncionarioService, HttpUtilService, LancamentoService, PtBrMatPaginato
     MatRadioModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCardModule,
     MatDialogModule,
     MatPaginatorModule,
     MatSortModule,
