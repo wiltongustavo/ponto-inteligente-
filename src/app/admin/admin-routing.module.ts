@@ -7,11 +7,13 @@ import {
 	CadastroComponent, 
 	ListagemComponent 
 } from './components';
+import { AdminGuard } from './services';
 
 export const AdminRoutes: Routes = [
 	{
 		path: 'admin',
 		component: AdminComponent,
+		canActivate: [ AdminGuard],
 		children: [
 		  {
 			path: '', 

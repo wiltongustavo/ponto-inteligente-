@@ -6,11 +6,13 @@ import {
 	LancamentoComponent, 
 	ListagemComponent 
 } from './components';
+import { AdminGuard } from './services';
 
 export const FuncionarioRoutes: Routes = [
 	{
 		path: 'funcionario',
 		component: FuncionarioComponent,
+		canActivate: [ AdminGuard],
 		children: [
 		  {
 			path: '', 

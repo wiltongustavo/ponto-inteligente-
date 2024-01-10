@@ -21,6 +21,7 @@ import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginato
 import { MatSortModule } from '@angular/material/sort';
 import { FuncionarioService, HttpUtilService, LancamentoService, PtBrMatPaginatorIntl, SharedModule } from '../shared';
 import {MatCardModule} from '@angular/material/card';
+import { AdminGuard } from './services';
 
 
 
@@ -60,7 +61,8 @@ import {MatCardModule} from '@angular/material/card';
     MatPaginatorIntl,
     FuncionarioService,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'},
-    {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}
+    {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl},
+    AdminGuard
   ],
 
 })

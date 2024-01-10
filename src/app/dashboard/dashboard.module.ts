@@ -26,6 +26,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { IllustrationsComponent } from './components/illustrations/illustrations.component';
 import { DevelopmentComponent } from './components/development/development.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { AdminGuard } from './services';
 
 
 
@@ -56,6 +57,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
   ],
   exports:[
     SidebarComponent
-  ]
+  ],
+  providers:[ AdminGuard]
 })
 export class DashboardModule { }

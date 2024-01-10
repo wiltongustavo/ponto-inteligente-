@@ -23,6 +23,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { DatePipe } from '@angular/common'
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { AdminGuard } from './services';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatToolbarModule,
     SharedModule,
   ],
-  providers: [provideEnvironmentNgxMask(), HttpUtilService, LancamentoService, {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}, DatePipe]
+  providers: [provideEnvironmentNgxMask(), HttpUtilService, LancamentoService, {provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl}, DatePipe, AdminGuard]
 })
 export class FuncionarioModule { }
