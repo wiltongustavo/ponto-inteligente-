@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json --oat",
     "build": "ng build ",
     "purgecss": "purgecss -c purgecss.config.js -o dist/ponto-inteligente",
     "watch": "ng build --watch --configuration development",
